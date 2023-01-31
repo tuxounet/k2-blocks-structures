@@ -1,0 +1,9 @@
+k2:
+  metadata:
+    id: k2.blocks.structures.config.branch-env-config
+    kind: "template"
+  body:
+    name: "branch-env-config"
+    parameters:
+      name: "branch-env-config"
+      description: "Per-Branch JSON config file"
