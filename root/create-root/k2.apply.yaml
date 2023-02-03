@@ -12,4 +12,4 @@ k2:
     vars:
       namespace: "k2.cli.my"
       title: "<%= title %>"
-      version: "<%= version %>
+      version: "<%= version %>"
