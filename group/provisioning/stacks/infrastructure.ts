@@ -4,7 +4,7 @@ import "source-map-support/register";
 import <%= component.name %>Infra from "@<%= partition %>/<%= name %>-<%= component.segment %>-infra";
 <% } %>
 
-import { formats, types } from "@k2/builder";
+import { formats, types } from "@tuxounet-k2/builder";
 import path from "path";
 import fs from "fs";
 import * as cdk from "aws-cdk-lib";
@@ -46,11 +46,11 @@ const config: types.IStackProps = JSON.parse(
 const app = new cdk.App();
 
 <% for(const component of components) { %>
-new <%= component.name %>Infra(app, formats.formatRessourceId(`<%= name %>`, `<%= component.segment %>`, "infra"), {
-  "<%= component.template %>": config["<%= name %>-<%= component.segment %>"] as any,
+new <%= component %>Infra(app, formats.formatRessourceId(`<%= group %>`, `<%= component %>`, "infra"), {
+  "<%= group %>-<%= component %>": config["<%= group %>-<%= component %>"] as any,
   ...config,
-  group: "<%= name %>", 
-  component: "<%= component.segment %>",
+  group: "<%= group %>", 
+  component: "<%= component %>",
 });
 
 <% } %>

@@ -1,5 +1,5 @@
 {
-  "name": "@<%= partition %>/<%= name %>-provisioning",
+  "name": "@<%= partition %>/<%= group %>-provisioning",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -28,7 +28,7 @@
   "dependencies": {
     "@k2/builder": "^1.0.0",
     <% for(const component of components) { %>
-    "@<%= partition %>/<%= name %>-<%= component.segment %>-infra" : "^1.0.0",
+    "@<%= partition %>/<%= group %>-<%= component %>-infra" : "^1.0.0",
     <% } %>
     "aws-cdk-lib": "2.61.1",
     "constructs": "^10.0.0"
