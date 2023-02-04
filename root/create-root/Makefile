@@ -12,9 +12,9 @@ install:
 	@npx @tuxounet-k2/cli apply
 
 clean:
-	@npx @tuxounet-k2/cli clean
+	@npx lerna run clean 
 
-build: clean
+build:
 	@npx lerna exec npm run build
 	@npx lerna bootstrap
 
@@ -32,6 +32,9 @@ undeploy: install build
 apply:
 	@npx @tuxounet-k2/cli apply
 	@npx lerna bootstrap
+
+unapply:
+	@npx @tuxounet-k2/cli clean
 
 
 list:
