@@ -1,14 +1,14 @@
 {
   "name": "@<%= partition %>/<%= group %>-provisioning",
-  "version": "1.0.0",
+  "version": "<%= version %>",
   "description": "",
-  "main": "index.js",
+  "main": "stakcs/infrastructure.js",
   "scripts": {
     "prenuke": "npm run clean",
     "nuke": "rm -rf ./node_modules ./package-lock.json",
      
     "clean": "rm -rf ./dist ./out ./coverage",
-    "build": "tsc",
+    "build": "tsc && npm run synth",
     "watch": "tsc -w",
     "test": "jest --coverage",
     "cdk": "cdk",
