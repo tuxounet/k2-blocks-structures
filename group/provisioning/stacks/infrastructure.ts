@@ -5,11 +5,13 @@ import <%= component %>Infra from "@<%= partition %>/<%= group %>-<%= component 
 import { config, formats } from "@tuxounet-k2/builder";
 import * as cdk from "aws-cdk-lib";
  
-const currentConfig: config.Config = config.loadConfig(`<%= group %>`, `<%= component %>`)
+const currentConfig: config.Config = config.loadConfig()
 const app = new cdk.App();
 
 <% for(const component of components) { %>
-new <%= component %>Infra(app, formats.formatRessourceId(`<%= group %>`, `<%= component %>`, "infra"), currentConfig);
+new <%= component %>Infra(app, formats.formatRessourceId(`<%= group %>`, `<%= component %>`, "infra"), {
+    group : `<%= group %>`, component: `<%= component %>`, 
+    ...config.configuration});
 <% } %>
 
 export default app;
