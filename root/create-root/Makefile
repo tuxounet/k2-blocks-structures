@@ -19,14 +19,17 @@ build:
 	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna exec npm run build
 	@npx lerna bootstrap
 
+synth:
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run synth
+ 
+
 test:
 	@npx lerna run test
 
-deploy: install build test
+deploy: install build synth test
 	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run deploy
 
-undeploy: install build
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run synth
+undeploy: install synth
 	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run destroy
 
 
