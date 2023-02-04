@@ -10,8 +10,8 @@ build:
 	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run build --scope "@<%= partition %>/<%= group %>-*" 
 
 deploy: 
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run deploy --scope "@<%= partition %>/<%= group %>-*" 
+	@cd provisioning && K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npm run deploy 
 
 undeploy: 
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run destroy --scope "@<%= partition %>/<%= group %>-*" 
+	@cd provisioning && K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npm run destroy 
 

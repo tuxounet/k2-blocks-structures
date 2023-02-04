@@ -5,6 +5,7 @@ k2:
   body:
     name: "create"
     parameters:
+      description: "all groups"
       groups: []
 
     scripts:

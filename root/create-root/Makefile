@@ -1,11 +1,7 @@
 ENV_NAME := $(shell git rev-parse --abbrev-ref HEAD)
 INVENTORY_FOLDER := $(shell  git rev-parse --show-toplevel )
 nuke:
-	@npx lerna run nuke
-	@npx lerna clean -y
-	@npm run nuke
-	@npm install
-	@npx lerna bootstrap
+	@make -C ./packages nuke
 
 install:
 	@npm install
@@ -13,25 +9,19 @@ install:
 	@npx @tuxounet-k2/cli apply
 
 clean:
-	@npx lerna run clean 
+	@make -C ./packages clean
 
 build:
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna exec npm run build
-	@npx lerna bootstrap
-
-synth:
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run synth
- 
+	@make -C ./packages build
 
 test:
-	@npx lerna run test
+	@make -C ./packages test
 
 deploy: install build synth test
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run deploy
+	@make -C ./packages deploy
 
 undeploy: install synth
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run destroy
-
+	@make -C ./packages undeploy
 
 apply:
 	@npx @tuxounet-k2/cli apply
@@ -39,7 +29,6 @@ apply:
 
 unapply:
 	@npx @tuxounet-k2/cli clean
-
 
 list:
 	@npx @tuxounet-k2/cli list
