@@ -1,0 +1,6 @@
+{
+    "partition": "<%= partition %>",
+    "system": "<%= system %>",
+    "version": "<%= version %>", 
+    "prod": "<%= isProd %>"
+}

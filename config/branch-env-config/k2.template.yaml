@@ -7,3 +7,7 @@ k2:
     parameters:
       name: "branch-env-config"
       description: "Per-Branch JSON config file"
+      partition: k2-blocks
+      system: structures
+      version: "0.0.1"
+      isProd: false

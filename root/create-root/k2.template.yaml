@@ -8,6 +8,10 @@ k2:
       namespace: "k2.cli.my"
       title: "My K2 Project"
       version: "0.0.1"
+      partition: k2-void-create
+      system: root
+      version: "0.0.1"
+      isProd: false
     scripts:
       post:
         - "npm install"

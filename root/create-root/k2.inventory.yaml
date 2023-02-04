@@ -10,7 +10,11 @@ k2:
       applies:
         - config/**/k2.apply.yaml
         - packages/**/k2.apply.yaml
-
     vars:
       title: "<%= title %>"
       namespace: "<%= namespace %>"
+      version: "<%= namespace %>"
+      partition: "<%= namespace %>"
+      system: "<%= namespace %>"
+      version: "<%= namespace %>"
+      isProd: "<%= isProd %>"
