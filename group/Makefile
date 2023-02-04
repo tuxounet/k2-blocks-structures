@@ -9,6 +9,9 @@ nuke: clean
 build:
 	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run build --scope "@<%= partition %>/<%= group %>-*" 
 
+test:
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run test --scope "@<%= partition %>/<%= group %>-*" 
+
 deploy: 
 	@cd provisioning && K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npm run deploy 
 
