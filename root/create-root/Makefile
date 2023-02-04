@@ -17,10 +17,10 @@ build:
 test:
 	@make -C ./packages test
 
-deploy: install build synth test
+deploy: install build test
 	@make -C ./packages deploy
 
-undeploy: install synth
+undeploy: install build
 	@make -C ./packages undeploy
 
 apply:
