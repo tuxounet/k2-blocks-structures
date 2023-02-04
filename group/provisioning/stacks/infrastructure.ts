@@ -10,7 +10,7 @@ const app = new cdk.App();
 
 <% for(const component of components) { %>
 const <%= component %>Config: config.Config = config.loadConfig({        group : `<%= group %>`, component: `<%= component %>`,     });
-new <%= component %>Infra(app, `<%= group %>`, `<%= component %>`, formats.formatRessourceId(`<%= group %>`, `<%= component %>`, "infra"), <%= component %>Config);
+new <%= component %>Infra(app, formats.formatRessourceId(`<%= group %>`, `<%= component %>`, "infra"), <%= component %>Config);
 <% } %>
 
 export default app;
