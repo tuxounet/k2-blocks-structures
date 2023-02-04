@@ -9,9 +9,8 @@ const currentConfig: config.Config = config.loadConfig()
 const app = new cdk.App();
 
 <% for(const component of components) { %>
-new <%= component %>Infra(app, formats.formatRessourceId(`<%= group %>`, `<%= component %>`, "infra"), {
-    group : `<%= group %>`, component: `<%= component %>`, 
-    ...currentConfig.configuration});
+const <%= component %>Config: config.Config = config.loadConfig({        group : `<%= group %>`, component: `<%= component %>`,     });
+new <%= component %>Infra(app, `<%= group %>`, `<%= component %>`, formats.formatRessourceId(`<%= group %>`, `<%= component %>`, "infra"), <%= component %>Config);
 <% } %>
 
 export default app;
