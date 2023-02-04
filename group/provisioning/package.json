@@ -8,7 +8,7 @@
     "nuke": "rm -rf ./node_modules ./package-lock.json",
      
     "clean": "rm -rf ./dist ./out ./coverage",
-    "build": "tsc && npm run synth",
+    "build": "tsc",
     "watch": "tsc -w",
     "test": "jest --coverage",
     "cdk": "cdk",
