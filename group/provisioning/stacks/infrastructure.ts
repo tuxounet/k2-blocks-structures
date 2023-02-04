@@ -1,54 +1,18 @@
 import "source-map-support/register";
-
 <% for(const component of components) { %>
 import <%= component %>Infra from "@<%= partition %>/<%= group %>-<%= component %>-infra";
 <% } %>
-
-import { formats, types } from "@tuxounet-k2/builder";
-import path from "path";
-import fs from "fs";
+import { config, formats, types } from "@tuxounet-k2/builder";
 import * as cdk from "aws-cdk-lib";
-
-const env = process.env.K2_ENV || "";
-const allowed_envs = ["poc"];
-if (!allowed_envs.includes(env)) {
-  throw `l'environnement "${env}" est incorrect`;
-}
-
-
-const global_config_file = path.join(
-  __dirname,
-  "..",
-  "..",
-  "..",
-  "..",
-  "config",
-  `${env}.json`
-);
-
-
-const config_file = path.join(
-  __dirname,
-  "..",
-  "..",
-  "..",
-  "..",
-  "config",
-  `${env}.json`
-);
-if (!fs.existsSync(config_file)) {
-  throw `fichier de configuration inexistant a l'emplacement "${config_file}"`;
-}
-const config: types.IStackProps = JSON.parse(
-  fs.readFileSync(config_file, { encoding: "utf-8" })
-);
+ 
+const currentConfig: types.IStackProps = config.loadConfig()
 
 const app = new cdk.App();
 
 <% for(const component of components) { %>
 new <%= component %>Infra(app, formats.formatRessourceId(`<%= group %>`, `<%= component %>`, "infra"), {
-  "<%= group %>-<%= component %>": config["<%= group %>-<%= component %>"] as any,
-  ...config,
+  "<%= group %>-<%= component %>": currentConfig["<%= group %>-<%= component %>"] as any,
+  ...currentConfig,
   group: "<%= group %>", 
   component: "<%= component %>",
 });
