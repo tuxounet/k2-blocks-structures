@@ -1,5 +1,9 @@
-# <%= partition %>/<%= name%>
-## COmponents
+# <%= partition %>/<%= group %>
 
-- A
-- B
+<%= description %>
+
+## Components
+
+<% for(const component of components) { %>
+  -  [@<%= partition %>/<%= group %>-<%= component %>](./<%= component %>/README.md)
+<% } %>
