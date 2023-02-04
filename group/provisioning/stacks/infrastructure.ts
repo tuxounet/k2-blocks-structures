@@ -1,7 +1,7 @@
 import "source-map-support/register";
 
 <% for(const component of components) { %>
-import <%= component.name %>Infra from "@<%= partition %>/<%= name %>-<%= component.segment %>-infra";
+import <%= component %>Infra from "@<%= partition %>/<%= group %>-<%= component %>-infra";
 <% } %>
 
 import { formats, types } from "@tuxounet-k2/builder";
