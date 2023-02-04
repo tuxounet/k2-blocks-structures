@@ -10,8 +10,7 @@ k2:
       version: "0.0.1"
       partition: k2-void-create
       system: root
-      version: "0.0.1"
-      isProd: false
+      isProd: "false"
     scripts:
       post:
         - "npm install"

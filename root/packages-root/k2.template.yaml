@@ -1,0 +1,12 @@
+k2:
+  metadata:
+    id: k2.cli.create.packages-root
+    kind: "template"
+  body:
+    name: "create"
+    parameters:
+      groups: []
+
+    scripts:
+      post:
+        - "npm install"
