@@ -15,6 +15,18 @@ if (!allowed_envs.includes(env)) {
   throw `l'environnement "${env}" est incorrect`;
 }
 
+
+const global_config_file = path.join(
+  __dirname,
+  "..",
+  "..",
+  "..",
+  "..",
+  "config",
+  `${env}.json`
+);
+
+
 const config_file = path.join(
   __dirname,
   "..",

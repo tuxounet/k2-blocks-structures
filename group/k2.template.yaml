@@ -1,6 +1,9 @@
 k2:
   metadata:
-    id: k2.templates.structure.group
+    id: k2.templates.structures.group
     kind: "template"
   body:
     name: "Group"
+  parameters:
+    group: "my-group"
+    components: []
