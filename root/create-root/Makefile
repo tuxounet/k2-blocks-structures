@@ -1,7 +1,7 @@
 ENV_NAME := $(shell git rev-parse --abbrev-ref HEAD)
 INVENTORY_FOLDER := $(shell  git rev-parse --show-toplevel )
 nuke:
-	@make -C ./packages nuke
+	@npm run nuke
 
 install:
 	@npm install
@@ -14,7 +14,7 @@ clean:
 build:
 	@make -C ./packages build
 	@npx lerna bootstrap
-	
+
 test:
 	@make -C ./packages test
 
