@@ -8,6 +8,4 @@ k2:
       description: "all groups"
       groups: []
 
-    scripts:
-      post:
-        - "npm install"
+ 
