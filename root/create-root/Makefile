@@ -13,13 +13,13 @@ clean:
 
 build:
 	@make -C ./packages build
-
+	@npx lerna bootstrap
+	
 test:
 	@make -C ./packages test
 
 deploy: install build test
 	@make -C ./packages deploy
-
 undeploy: install build
 	@make -C ./packages undeploy
 
