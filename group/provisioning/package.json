@@ -4,9 +4,9 @@
   "description": "",
   "main": "stacks/infrastructure.js",
   "scripts": {
-    "prenuke": "npm run clean",
-    "nuke": "rm -rf ./node_modules ./package-lock.json",     
-    "clean": "rm -rf ./dist ./out ./coverage",
+   
+    "nuke": "rm -rf ./node_modules ./package-lock.json ./cdk.out",     
+    "clean": "rm -rf ./dist ./out  ./coverage",
     "build": "tsc && cdk synth",
     "watch": "tsc -w",
     "test": "jest",
