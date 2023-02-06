@@ -7,7 +7,7 @@
     "prenuke": "npm run clean",
     "nuke": "rm -rf ./node_modules ./package-lock.json",     
     "clean": "rm -rf ./dist ./out ./coverage",
-    "build": "tsc",
+    "build": "tsc && cdk synth",
     "watch": "tsc -w",
     "test": "jest",
     "test:coverage": "jest --coverage",
