@@ -6,7 +6,7 @@
     "packages/**"
   ],
   "scripts": {
-    "nuke": "rm -rf ./node_modules ./package-lock.json"
+    "nuke": "rm -rf ./node_modules ./package-lock.json ./refs **/package-lock.json"
   },
   "devDependencies": {
     "@tuxounet-k2/cli": "latest",
