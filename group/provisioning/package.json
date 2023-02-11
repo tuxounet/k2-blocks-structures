@@ -1,5 +1,5 @@
 {
-  "name": "@<%= partition %>/<%= group %>-provisioning",
+  "name": "@<%= partition %>/<%= system %>-<%= group %>-provisioning",
   "version": "<%= version %>",
   "description": "",
   "main": "stacks/infrastructure.js",
