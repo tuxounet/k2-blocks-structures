@@ -1,16 +1,16 @@
 ENV_NAME := $(shell git rev-parse --abbrev-ref HEAD)
 INVENTORY_FOLDER := $(shell  git rev-parse --show-toplevel )
 clean: 
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run clean --scope "@<%= partition %>/<%= group %>-*" 
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run clean --scope "@<%= partition %>/<%=system %>-<%= group %>-*" 
 
 nuke: clean
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run nuke --scope "@<%= partition %>/<%= group %>-*" 
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run nuke --scope "@<%= partition %>/<%=system %>-<%= group %>-*" 
 
 build:
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run build --scope "@<%= partition %>/<%= group %>-*" 
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run build --scope "@<%= partition %>/<%=system %>-<%= group %>-*" 
 
 test:
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run test --scope "@<%= partition %>/<%= group %>-*" 
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run test --scope "@<%= partition %>/<%=system %>-<%= group %>-*" 
 
 deploy: 
 	@cd provisioning && K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npm run deploy 
