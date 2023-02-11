@@ -28,7 +28,7 @@
   "dependencies": {
     "@tuxounet-k2/builder": "latest",
     <% for(const component of components) { %>
-    "@<%= partition %>/<%= system %>-<%= group %>-<%= component %>-infra" : "<%= version %>",
+    "@<%= partition %>/<%= system %>-<%= group %>-<%= component.name %>-infra" : "<%= version %>",
     <% } %>
     "aws-cdk-lib": "^2.61.1",
     "constructs": "^10.0.0"

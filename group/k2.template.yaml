@@ -7,8 +7,8 @@ k2:
   parameters:
     description: group of commpoenent ( blocks/receipe )
     group: "my-group"
-    components: 
-      - name:  sample0
-      - name:  sample1
+    components:
+      - name: sample0
+      - name: sample1
         needs:
           - sample0
