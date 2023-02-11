@@ -1,12 +1,14 @@
 ENV_NAME := $(shell git rev-parse --abbrev-ref HEAD)
 INVENTORY_FOLDER := $(shell  git rev-parse --show-toplevel )
-nuke:
+nuke: unapply
 	@npm run nuke
 
 install:
 	@npm install
 	@npx lerna bootstrap
 	@npx @tuxounet-k2/cli apply
+	@npm install
+	@npx lerna bootstrap
 
 clean:
 	@make -C ./packages clean
