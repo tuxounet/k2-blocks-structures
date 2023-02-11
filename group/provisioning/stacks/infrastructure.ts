@@ -1,6 +1,6 @@
 import "source-map-support/register";
 <% for(const component of components) { %>
-import <%= component %>Infra from "@<%= partition %>/<%= system %>-<%= group %>-<%= component %>-infra";
+import <%= component.name %>Infra from "@<%= partition %>/<%= system %>-<%= group %>-<%= component.name %>-infra";
 <% } %>
 import { config, formats } from "@tuxounet-k2/builder";
 import * as cdk from "aws-cdk-lib";
