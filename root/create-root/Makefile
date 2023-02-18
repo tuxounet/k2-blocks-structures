@@ -20,13 +20,13 @@ build:
 test:
 	@make -C ./packages test
 
-deploy: install build test
+deploy:  
 	@make -C ./packages deploy
-undeploy: install build
+undeploy:  
 	@make -C ./packages undeploy
 
 apply:
-	@npx @tuxounet-k2/cli apply
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx @tuxounet-k2/cli apply
 	@npx lerna bootstrap
 
 unapply:
