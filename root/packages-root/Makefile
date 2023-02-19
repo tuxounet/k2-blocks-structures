@@ -13,10 +13,10 @@ build:
 test:
 <% for(const group of groups) { %>	@make -C ./<%= group %> test
 <% } %>
-deploy: build test
+deploy:
 <% for(const group of groups) { %>	@make -C ./<%= group %> deploy
 <% } %>
-undeploy: build test
+undeploy:
 <% for(const group of groups) { %>	@make -C ./<%= group %> undeploy
 <% } %>
  

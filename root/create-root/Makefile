@@ -17,12 +17,19 @@ build:
 	@make -C ./packages build
 	@npx lerna bootstrap
 
+build-all: 
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run build
+
 test:
 	@make -C ./packages test
 
-deploy:  
+test-all: 
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run test
+
+deploy: build-all test-all
 	@make -C ./packages deploy
-undeploy:  
+	
+undeploy: build-all
 	@make -C ./packages undeploy
 
 apply:
