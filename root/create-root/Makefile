@@ -26,10 +26,10 @@ test:
 test-all: 
 	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run test
 
-deploy: build-all test-all
+deploy: apply build-all test-all
 	@make -C ./packages deploy
 	
-undeploy: build-all
+undeploy: apply build-all
 	@make -C ./packages undeploy
 
 apply:
