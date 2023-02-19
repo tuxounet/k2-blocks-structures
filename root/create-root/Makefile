@@ -19,7 +19,7 @@ build:
 
 build-all: 
 	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run build
-
+	@npx lerna bootstrap
 test:
 	@make -C ./packages test
 
