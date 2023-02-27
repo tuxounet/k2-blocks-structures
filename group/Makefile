@@ -1,20 +1,25 @@
 ENV_NAME := $(shell git rev-parse --abbrev-ref HEAD)
 INVENTORY_FOLDER := $(shell  git rev-parse --show-toplevel )
+
 clean: 
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run clean --scope "@<%= partition %>/<%=system %>-<%= group %>-*" 
-
-nuke: clean
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run nuke --scope "@<%= partition %>/<%=system %>-<%= group %>-*" 
-
+<% for(const component of components) { %>	@make -C ./<%= component.name %>/ clean
+<% } %>
+ 
+nuke:
+<% for(const component of components) { %>	@make -C ./<%= component.name %>/ nuke
+<% } %>
+ 
 build:
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run build --scope "@<%= partition %>/<%=system %>-<%= group %>-*" 
-
+<% for(const component of components) { %>	@make -C ./<%= component.name %>/ build
+<% } %>
+	 
 test:
-	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx lerna run test --scope "@<%= partition %>/<%=system %>-<%= group %>-*" 
+<% for(const component of components) { %>	@make -C ./<%= component.name %>/ test
+<% } %>
 
-deploy: 
-	@cd provisioning && K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npm run deploy 
+# deploy:
+# 	@cd provisioning && K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npm run deploy 
 
-undeploy: 
-	@cd provisioning && K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npm run destroy 
+# undeploy:
+# 	@cd provisioning && K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npm run destroy 
 
