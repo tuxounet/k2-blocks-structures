@@ -17,9 +17,11 @@ test:
 <% for(const component of components) { %>	@make -C ./<%= component.name %>/ test
 <% } %>
 
-# deploy:
-# 	@cd provisioning && K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npm run deploy 
+deploy:
+<% for(const component of components) { %>	@make -C ./<%= component.name %>/ deploy
+<% } %>
 
-# undeploy:
-# 	@cd provisioning && K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npm run destroy 
-
+undeploy:
+<% for(const component of components) { %>	@make -C ./<%= component.name %>/ undeploy
+<% } %>
+ 
