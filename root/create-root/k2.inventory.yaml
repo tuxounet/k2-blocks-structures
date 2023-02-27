@@ -16,5 +16,4 @@ k2:
       version: "<%= namespace %>"
       partition: "<%= namespace %>"
       system: "<%= namespace %>"
-      version: "<%= namespace %>"
       isProd: "<%= isProd %>"
