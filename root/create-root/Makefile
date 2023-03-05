@@ -37,7 +37,7 @@ apply:
 	@npx lerna bootstrap
 
 unapply:
-	@npx @tuxounet-k2/cli clean
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx @tuxounet-k2/cli clean
 
 list:
-	@npx @tuxounet-k2/cli list
+	@K2_ENV=${ENV_NAME} K2_INVENTORY=${INVENTORY_FOLDER} npx @tuxounet-k2/cli list

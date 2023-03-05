@@ -5,11 +5,11 @@ k2:
   body:
     name: "create"
     parameters:
-      namespace: "k2.cli.my"
       title: "My K2 Project"
       version: "0.0.1"
-      partition: k2-void-create
-      system: root
+      namespace: "k2.cli.my"
+      partition: k2
+      system: void-create
       isProd: "false"
     scripts:
       post:

@@ -1,6 +1,6 @@
 k2:
   metadata:
-    id: "<%= namespace %>.inventory"
+    id: "<%= namespace %>.<%= partition %>.<%= system %> inventory"
     kind: inventory
   body:
     folders:
@@ -13,7 +13,7 @@ k2:
     vars:
       title: "<%= title %>"
       namespace: "<%= namespace %>"
-      version: "<%= namespace %>"
-      partition: "<%= namespace %>"
-      system: "<%= namespace %>"
+      version: "<%= version %>"
+      partition: "<%= partition %>"
+      system: "<%= system %>"
       isProd: "<%= isProd %>"
