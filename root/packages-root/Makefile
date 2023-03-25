@@ -17,6 +17,6 @@ deploy:
 <% for(const group of groups) { %>	@make -C ./<%= group %> deploy
 <% } %>
 undeploy:
-<% for(const group of groups) { %>	@make -C ./<%= group %> undeploy
+<% const reverse = Array.from(groups).reverse() %>
+<% for(const group of reverse) { %>	@make -C ./<%= group %>/ undeploy
 <% } %>
- 
